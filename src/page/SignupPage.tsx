@@ -22,7 +22,7 @@ export const SignUpPage = () => {
         <SignUpForm />
       </AuthLeftSection>
 
-      <AuthRightSection color="green">
+      <AuthRightSection variant="green">
         <Testimonial />
       </AuthRightSection>
     </div>

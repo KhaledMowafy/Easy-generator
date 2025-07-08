@@ -37,9 +37,11 @@ export const SignUpForm = () => {
       newErrors.email = "Invalid email format.";
     }
 
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
     if (!passwordRegex.test(form.password)) {
-      newErrors.password = "Password must be at least 8 characters, include a letter, number, and special character.";
+      newErrors.password =
+        "Password must be at least 8 characters, include a letter, number, and special character.";
     }
 
     if (form.confirmPassword !== form.password) {
@@ -51,11 +53,29 @@ export const SignUpForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form submitted:", form);
-      // call API here
+      const { confirmPassword, ...payload } = form;
+      try {
+        const response = await fetch("http://localhost:3000/auth/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || "Something went wrong");
+        }
+
+        alert("Signup successful!");
+      } catch (error: any) {
+        alert(error.message);
+      }
     }
   };
 

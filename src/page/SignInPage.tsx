@@ -33,7 +33,7 @@ export const SignInPage = () => {
         <LoginForm />
       </AuthLeftSection>
 
-      <AuthRightSection color="blue">
+      <AuthRightSection variant="blue">
         <Testimonial />
       </AuthRightSection>
     </div>
