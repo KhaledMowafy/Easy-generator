@@ -1,69 +1,79 @@
-# React + TypeScript + Vite
+# Easy Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.1-blue?logo=react)](https://reactjs.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-7.0-purple?logo=vite)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A modern React + TypeScript web application with authentication and role-based access, styled using Tailwind CSS.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🔐 Authentication (Sign In / Sign Up)
+- 🧱 Atomic Design Component Structure
+- 🧭 Protected Routes (Authorized / Unauthorized Pages)
+- 🎨 Tailwind CSS for styling
+- 📦 Vite for fast development & build
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Tech Stack
+
+| Tech              | Version    | Description                      |
+|-------------------|------------|----------------------------------|
+| React             | ^19.1.0    | UI library                       |
+| React Router DOM  | ^7.6.3     | Routing                          |
+| TypeScript        | ~5.8.3     | Static typing                    |
+| Vite              | ^7.0.0     | Build tool                       |
+| Tailwind CSS      | ^4.1.11    | Utility-first CSS                |
+| Lucide React      | ^0.525.0   | Icon library                     |
+| clsx              | ^2.1.1     | Conditional classNames utility   |
+| ESLint            | ^9.29.0    | Linting                          |
+
+---
+
+## 📦 Install & Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/easy-generator.git
+cd easy-generator
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Run the app in development mode
+
+```bash
+npm run dev
+```
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+### 🗂️ Folder Structure (Atomic Design)
+
+```bash
+src/
+├── assets/
+├── components/
+│   ├── atoms/
+│   ├── molecules/
+│   ├── organisms/
+├── pages/
+├── App.tsx
+├── main.tsx
+```
+
